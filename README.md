@@ -1,12 +1,12 @@
-# 🔐 Secure IoT Anomaly Detection System
+# Secure IoT Anomaly Detection System
 
 A robust IoT monitoring solution that combines **AES-128 encryption**, **MQTT communication**, and **Browser-based AI Anomaly Detection**. This project demonstrates how to securely transmit sensor data from an ESP32 to a web dashboard and filter out anomalies in real-time using JavaScript.
 
-## 🚀 Project Overview
+## Project Overview
 
 This system simulates a sensor node (ESP32) generating environmental data (Temperature, Humidity, Light). The data is encrypted on the device, transmitted via MQTT to a public broker, and received by a web dashboard. The dashboard decrypts the data and passes it through a lightweight AI model to detect and correct sensor anomalies before visualization.
 
-### 🏗 Architecture
+### Architecture
 
 ```mermaid
 graph LR
@@ -18,25 +18,25 @@ graph LR
     F -->|Clean Data| G[Chart.js Visualization]
 ```
 
-## ✨ Key Features
+## Key Features
 
-- **🔒 End-to-End Security**: 
+- **End-to-End Security**: 
   - Data is encrypted using **AES-128 (ECB Mode)** on the ESP32.
   - Transmitted securely via MQTT.
   - Decrypted locally in the browser.
-- **📡 Real-Time Communication**:
+- **Real-Time Communication**:
   - Uses **MQTT over WebSockets** (HiveMQ) for low-latency data streaming.
   - Accessible from any network (Mobile/Desktop) without port forwarding.
-- **🧠 Edge AI (Browser-Side)**:
+- **Edge AI (Browser-Side)**:
   - **Z-Score Analysis**: Statistical method to identify outliers.
   - **Range Clamping**: Automatically corrects impossible sensor values.
   - **Zero-Dependency**: AI logic runs entirely in vanilla JavaScript (`ai_model.js`).
-- **📱 Responsive Dashboard**:
+- **Responsive Dashboard**:
   - Modern UI with Dark Mode.
   - Real-time charts using **Chart.js**.
   - Live logs showing Encrypted vs. Decrypted data streams.
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 ├── src/
@@ -52,7 +52,7 @@ graph LR
 └── ml_pipeline/           # (Deprecated) Python-based ML experiments
 ```
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Hardware**: ESP32 Development Board
 - **Firmware**: C++, PlatformIO, Arduino Framework
@@ -61,7 +61,7 @@ graph LR
 - **Visualization**: Chart.js
 - **Protocol**: MQTT (Message Queuing Telemetry Transport)
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - VS Code with **PlatformIO** extension installed.
@@ -89,7 +89,7 @@ graph LR
    - Open `index.html` in any modern web browser (Chrome, Safari, Firefox).
    - Works on Mobile devices too!
 
-## 🕹️ Usage
+## Usage
 
 1. **Power on the ESP32**: It will connect to WiFi and start publishing encrypted data to `encryption_tls/data`.
 2. **Open Dashboard**: Click the **"Connect"** button on the web interface.
@@ -98,7 +98,7 @@ graph LR
    - **Logs**: Observe the raw encrypted string vs. the decrypted JSON.
    - **Anomalies**: Watch the AI correct spikes (simulated anomalies occur randomly).
 
-## 🛡️ Security Details
+## Security Details
 
 - **Algorithm**: AES-128 (Advanced Encryption Standard).
 - **Key Management**: Hardcoded 16-byte key (for demo purposes).
