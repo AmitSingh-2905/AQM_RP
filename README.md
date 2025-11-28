@@ -105,4 +105,4 @@ graph LR
 - **Transport**: MQTT over Secure WebSockets (WSS) on port 8884.
 
 ---
-*Created by Amit Prasad Singh*
+*Created by Amit Prasad Singh and Abhisek Beuria*
