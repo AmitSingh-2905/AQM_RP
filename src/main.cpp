@@ -156,87 +156,87 @@ void generateSensorData() {
 }
 
 // HTML page with encrypted and decrypted data display
-String getWebPage() {
-  String html = "<!DOCTYPE html><html><head>";
-  html += "<meta name='viewport' content='width=device-width, initial-scale=1'>";
-  html += "<meta charset='UTF-8'>";
-  html += "<title>ESP32 Encrypted Data Monitor</title>";
-  html += "<style>";
-  html += "body { font-family: Arial, sans-serif; margin: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }";
-  html += ".container { max-width: 900px; margin: 0 auto; background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; backdrop-filter: blur(10px); }";
-  html += "h1 { text-align: center; margin-bottom: 10px; }";
-  html += ".subtitle { text-align: center; margin-bottom: 30px; font-size: 14px; opacity: 0.8; }";
-  html += ".card { background: rgba(255,255,255,0.2); padding: 20px; margin: 20px 0; border-radius: 10px; border: 1px solid rgba(255,255,255,0.3); }";
-  html += ".card h2 { margin-top: 0; color: #fff; border-bottom: 2px solid rgba(255,255,255,0.3); padding-bottom: 10px; }";
-  html += ".data-item { margin: 10px 0; padding: 10px; background: rgba(0,0,0,0.2); border-radius: 5px; }";
-  html += ".data-label { font-weight: bold; color: #ffd700; }";
-  html += ".encrypted { font-family: monospace; word-break: break-all; background: rgba(255,0,0,0.2); padding: 15px; border-radius: 5px; border-left: 4px solid #ff6b6b; }";
-  html += ".decrypted { font-family: monospace; word-break: break-all; background: rgba(0,255,0,0.2); padding: 15px; border-radius: 5px; border-left: 4px solid #51cf66; }";
-  html += ".stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }";
-  html += ".stat-box { background: rgba(255,255,255,0.15); padding: 15px; border-radius: 8px; text-align: center; }";
-  html += ".stat-value { font-size: 32px; font-weight: bold; color: #ffd700; }";
-  html += ".stat-label { font-size: 14px; margin-top: 5px; opacity: 0.9; }";
-  html += ".encryption-info { background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #4dabf7; }";
-  html += ".refresh-btn { background: #4dabf7; color: white; border: none; padding: 12px 30px; border-radius: 25px; cursor: pointer; font-size: 16px; margin: 20px auto; display: block; }";
-  html += "</style>";
-  html += "<script>";
-  html += "function autoRefresh() { location.reload(); }";
-  html += "setInterval(autoRefresh, 5000);";
-  html += "</script>";
-  html += "</head><body>";
+// String getWebPage() {
+//   String html = "<!DOCTYPE html><html><head>";
+//   html += "<meta name='viewport' content='width=device-width, initial-scale=1'>";
+//   html += "<meta charset='UTF-8'>";
+//   html += "<title>ESP32 Encrypted Data Monitor</title>";
+//   html += "<style>";
+//   html += "body { font-family: Arial, sans-serif; margin: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }";
+//   html += ".container { max-width: 900px; margin: 0 auto; background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; backdrop-filter: blur(10px); }";
+//   html += "h1 { text-align: center; margin-bottom: 10px; }";
+//   html += ".subtitle { text-align: center; margin-bottom: 30px; font-size: 14px; opacity: 0.8; }";
+//   html += ".card { background: rgba(255,255,255,0.2); padding: 20px; margin: 20px 0; border-radius: 10px; border: 1px solid rgba(255,255,255,0.3); }";
+//   html += ".card h2 { margin-top: 0; color: #fff; border-bottom: 2px solid rgba(255,255,255,0.3); padding-bottom: 10px; }";
+//   html += ".data-item { margin: 10px 0; padding: 10px; background: rgba(0,0,0,0.2); border-radius: 5px; }";
+//   html += ".data-label { font-weight: bold; color: #ffd700; }";
+//   html += ".encrypted { font-family: monospace; word-break: break-all; background: rgba(255,0,0,0.2); padding: 15px; border-radius: 5px; border-left: 4px solid #ff6b6b; }";
+//   html += ".decrypted { font-family: monospace; word-break: break-all; background: rgba(0,255,0,0.2); padding: 15px; border-radius: 5px; border-left: 4px solid #51cf66; }";
+//   html += ".stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }";
+//   html += ".stat-box { background: rgba(255,255,255,0.15); padding: 15px; border-radius: 8px; text-align: center; }";
+//   html += ".stat-value { font-size: 32px; font-weight: bold; color: #ffd700; }";
+//   html += ".stat-label { font-size: 14px; margin-top: 5px; opacity: 0.9; }";
+//   html += ".encryption-info { background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #4dabf7; }";
+//   html += ".refresh-btn { background: #4dabf7; color: white; border: none; padding: 12px 30px; border-radius: 25px; cursor: pointer; font-size: 16px; margin: 20px auto; display: block; }";
+//   html += "</style>";
+//   html += "<script>";
+//   html += "function autoRefresh() { location.reload(); }";
+//   html += "setInterval(autoRefresh, 5000);";
+//   html += "</script>";
+//   html += "</head><body>";
   
-  html += "<div class='container'>";
-  html += "<h1>🔐 ESP32 Encrypted Data Monitor</h1>";
-  html += "<div class='subtitle'>Real-time sensor data with AES-128 encryption</div>";
+//   html += "<div class='container'>";
+//   html += "<h1>🔐 ESP32 Encrypted Data Monitor</h1>";
+//   html += "<div class='subtitle'>Real-time sensor data with AES-128 encryption</div>";
   
-  html += "<div class='encryption-info'>";
-  html += "<strong>🔒 Security Features:</strong><br>";
-  html += "• AES-128 Encryption<br>";
-  html += "• Secure WiFi transmission<br>";
-  html += "• Auto-refresh every 5 seconds";
-  html += "</div>";
+//   html += "<div class='encryption-info'>";
+//   html += "<strong>🔒 Security Features:</strong><br>";
+//   html += "• AES-128 Encryption<br>";
+//   html += "• Secure WiFi transmission<br>";
+//   html += "• Auto-refresh every 5 seconds";
+//   html += "</div>";
   
-  html += "<div class='stats'>";
-  html += "<div class='stat-box'>";
-  html += "<div class='stat-value'>" + String(latestData.temperature, 1) + "°C</div>";
-  html += "<div class='stat-label'>Temperature</div>";
-  html += "</div>";
-  html += "<div class='stat-box'>";
-  html += "<div class='stat-value'>" + String(latestData.humidity, 1) + "%</div>";
-  html += "<div class='stat-label'>Humidity</div>";
-  html += "</div>";
-  html += "<div class='stat-box'>";
-  html += "<div class='stat-value'>" + String(latestData.lightLevel) + "</div>";
-  html += "<div class='stat-label'>Light Level</div>";
-  html += "</div>";
-  html += "</div>";
+//   html += "<div class='stats'>";
+//   html += "<div class='stat-box'>";
+//   html += "<div class='stat-value'>" + String(latestData.temperature, 1) + "°C</div>";
+//   html += "<div class='stat-label'>Temperature</div>";
+//   html += "</div>";
+//   html += "<div class='stat-box'>";
+//   html += "<div class='stat-value'>" + String(latestData.humidity, 1) + "%</div>";
+//   html += "<div class='stat-label'>Humidity</div>";
+//   html += "</div>";
+//   html += "<div class='stat-box'>";
+//   html += "<div class='stat-value'>" + String(latestData.lightLevel) + "</div>";
+//   html += "<div class='stat-label'>Light Level</div>";
+//   html += "</div>";
+//   html += "</div>";
   
-  html += "<div class='card'>";
-  html += "<h2>🔒 Encrypted Data (AES-128)</h2>";
-  html += "<div class='encrypted'>" + latestData.encryptedData + "</div>";
-  html += "</div>";
+//   html += "<div class='card'>";
+//   html += "<h2>🔒 Encrypted Data (AES-128)</h2>";
+//   html += "<div class='encrypted'>" + latestData.encryptedData + "</div>";
+//   html += "</div>";
   
-  html += "<div class='card'>";
-  html += "<h2>🔓 Decrypted Data (Plain JSON)</h2>";
-  html += "<div class='decrypted'>" + latestData.decryptedData + "</div>";
-  html += "</div>";
+//   html += "<div class='card'>";
+//   html += "<h2>🔓 Decrypted Data (Plain JSON)</h2>";
+//   html += "<div class='decrypted'>" + latestData.decryptedData + "</div>";
+//   html += "</div>";
   
-  html += "<div class='card'>";
-  html += "<h2>📊 Data Details</h2>";
-  html += "<div class='data-item'><span class='data-label'>Sample Count:</span> " + String(dataCounter) + "</div>";
-  html += "<div class='data-item'><span class='data-label'>Timestamp:</span> " + String(latestData.timestamp) + " ms</div>";
-  html += "<div class='data-item'><span class='data-label'>Encrypted Size:</span> " + String(latestData.encryptedData.length()) + " bytes</div>";
-  html += "<div class='data-item'><span class='data-label'>Decrypted Size:</span> " + String(latestData.decryptedData.length()) + " bytes</div>";
-  html += "<div class='data-item'><span class='data-label'>ESP32 IP:</span> " + WiFi.localIP().toString() + "</div>";
-  html += "</div>";
+//   html += "<div class='card'>";
+//   html += "<h2>📊 Data Details</h2>";
+//   html += "<div class='data-item'><span class='data-label'>Sample Count:</span> " + String(dataCounter) + "</div>";
+//   html += "<div class='data-item'><span class='data-label'>Timestamp:</span> " + String(latestData.timestamp) + " ms</div>";
+//   html += "<div class='data-item'><span class='data-label'>Encrypted Size:</span> " + String(latestData.encryptedData.length()) + " bytes</div>";
+//   html += "<div class='data-item'><span class='data-label'>Decrypted Size:</span> " + String(latestData.decryptedData.length()) + " bytes</div>";
+//   html += "<div class='data-item'><span class='data-label'>ESP32 IP:</span> " + WiFi.localIP().toString() + "</div>";
+//   html += "</div>";
   
-  html += "<button class='refresh-btn' onclick='location.reload()'>🔄 Refresh Now</button>";
+//   html += "<button class='refresh-btn' onclick='location.reload()'>🔄 Refresh Now</button>";
   
-  html += "</div>";
-  html += "</body></html>";
+//   html += "</div>";
+//   html += "</body></html>";
   
-  return html;
-}
+//   return html;
+// }
 
 // Handle root page request
 void handleRoot() {

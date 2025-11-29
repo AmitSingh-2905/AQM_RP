@@ -233,7 +233,16 @@
                 } 
             },
             scales: {
-                x: { display: false },
+                x: { 
+                    display: true,
+                    grid: { color: 'rgba(255,255,255,0.05)' },
+                    ticks: { 
+                        color: '#aaa',
+                        font: { size: 10 },
+                        maxRotation: 45,
+                        minRotation: 45
+                    }
+                },
                 y: { grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: '#aaa' } }
             },
             elements: {
