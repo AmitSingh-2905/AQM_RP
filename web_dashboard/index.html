@@ -114,6 +114,12 @@
             opacity: 0.7;
         }
 
+        .chart-container {
+            position: relative;
+            height: 250px;
+            width: 100%;
+        }
+
         .data-stream {
             font-family: 'Courier New', monospace;
             font-size: 12px;
@@ -185,17 +191,23 @@
             <div class="card stat-card">
                 <div class="stat-label">Temperature</div>
                 <div class="stat-value" id="tempValue">--°C</div>
-                <canvas id="tempChart" height="100"></canvas>
+                <div class="chart-container">
+                    <canvas id="tempChart"></canvas>
+                </div>
             </div>
             <div class="card stat-card">
                 <div class="stat-label">Humidity</div>
                 <div class="stat-value" id="humValue">--%</div>
-                <canvas id="humChart" height="100"></canvas>
+                <div class="chart-container">
+                    <canvas id="humChart"></canvas>
+                </div>
             </div>
             <div class="card stat-card">
                 <div class="stat-label">Light Level</div>
                 <div class="stat-value" id="lightValue">--</div>
-                <canvas id="lightChart" height="100"></canvas>
+                <div class="chart-container">
+                    <canvas id="lightChart"></canvas>
+                </div>
             </div>
         </div>
 
@@ -226,6 +238,7 @@
         // Charts setup
         const commonOptions = {
             responsive: true,
+            maintainAspectRatio: false,
             plugins: { 
                 legend: { 
                     display: true,
@@ -418,7 +431,8 @@
                         document.getElementById('statusDot').className = 'status-indicator status-error';
                     }, 
                     useSSL: true,
-                    timeout: 3
+                    timeout: 10,
+                    keepAliveInterval: 60
                 });
             } else {
                 if (client) {
